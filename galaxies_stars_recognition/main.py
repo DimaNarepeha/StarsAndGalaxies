@@ -130,18 +130,13 @@ def plot_large_weights_distribution(model, threshold=1.0):
             plt.show()
 
 
-# Assuming `model` is your PyTorch model instance
+# Assuming `model` is a PyTorch model instance
 plot_large_weights_distribution(model, threshold=1.0)
 
 trainer = L.Trainer(max_epochs=200)
 
 # trainer.fit(model)
 trainer.test(model)
-
-
-# #
-#
-#
 
 
 # Define a function to display images and their predicted labels
@@ -175,7 +170,7 @@ test_transform = transforms.Compose([
 val_dataset = datasets.ImageFolder(root=filepath_validate, transform=test_transform)
 val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=True, num_workers=16)
 #
-# # Assuming `val_loader` is your validation DataLoader
+# # `val_loader` is validation DataLoader
 for i in range(8):
     display_predictions(model, val_loader, num_images=6)
 plt.show()
@@ -189,7 +184,7 @@ test_transform = transforms.Compose([
 val_dataset = datasets.ImageFolder(root=filepath_hand_test, transform=test_transform)
 val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=True, num_workers=16)
 #
-# # Assuming `val_loader` is your validation DataLoader
+# # so `val_loader` is validation DataLoader
 for i in range(1):
     display_predictions(model, val_loader, num_images=6)
 plt.show()
